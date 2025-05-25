@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
 import argparse
+import functools
 import pathlib
 import platform
 import re
+import shutil
 import sys
 from time import time
 from urllib.parse import parse_qs, unquote, urlparse
+from tqdm import tqdm
 
 import requests
 from requests import HTTPError
@@ -284,18 +287,14 @@ def download_model(url, local_dir, token):
         output_path = raw_output_path.expanduser().resolve()
         output_path.parent.mkdir(parents=True, exist_ok=True)
         total = int(r.headers.get("Content-Length", 0))
+        desc = "(Total file size N/A)" if total == 0 else ""
+        r.raw.read = functools.partial(r.raw.read, decode_content=True)  # Decompress if needed
+
         downloaded = 0
         start = time()
-
-        with open(output_path, "wb") as f:
-            for chunk in r.iter_content(chunk_size=CHUNK_SIZE):
-                if chunk:
-                    f.write(chunk)
-                    downloaded += len(chunk)
-                    if total:
-                        percent = (downloaded / total) * 100
-                        sys.stdout.write(f"\r{filename}: {percent:.2f}%")
-                        sys.stdout.flush()
+        with tqdm.wrapattr(r.raw, "read", total=total, desc=desc) as raw:
+            with output_path.open("wb") as f:
+                shutil.copyfileobj(raw, f)
 
     set_file_permissions(output_path)
     print(
