@@ -16,7 +16,7 @@ dependencies = [
     "urllib3"
 ]
 
-# [project.authors]
+[project.authors]
 name = "Jack Brooks"
 email = "iresprite@gmail.com"
 
