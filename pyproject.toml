@@ -8,7 +8,7 @@ build-backend = "setuptools.build_meta"
 name = "civitai-downloader"
 version = "2.1.0"
 description = "A script to download models from CivitAI using an API key."
-requires-python = ">=3.8" # Specify the minimum Python version your script supports (adjust as needed)
+requires-python = ">=3.8"
 dependencies = [
     "requests",
     "tqdm",
