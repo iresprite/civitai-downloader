@@ -1,5 +1,16 @@
 # Python script to download models from CivitAI using an API key
 
+This project is a personalized and enhanced fork of the original Civitai Downloader by [ashleykleynhans](https://github.com/ashleykleynhans), available at [https://github.com/ashleykleynhans/civitai-downloader](https://github.com/ashleykleynhans/civitai-downloader).
+
+The original project appears to be no longer actively maintained. This version incorporates substantial modifications and new features tailored for my personal use.
+
+## Key Changes & Enhancements in This Version
+
+* Uses `requests` instead of `urllib3` for CivitAI API calls
+* Adds support for batch downloading
+* Adds support for using AIR (Artificial Intelligence Resource) in addition to URL
+* **Major Refactor of Core Logic:** For example, `download.py` has been significantly reworked for readability, sanitized filenames, and some QoL improvements like a progress bar.
+
 ## Getting Started
 
 This script requires a [CivitAI](https://civitai.com/user/account)
@@ -27,7 +38,8 @@ chmod +x /usr/local/bin/download-model
 
 > [!IMPORTANT]
 > It is important to ensure that you use the **DOWNLOAD** link
-> and not the link to the model page in CivitAI.
+> and not the link to the model page in CivitAI. You can also
+    > use the AIR ([Artificial Intelligence Resource](https://github.com/civitai/civitai/wiki/AIR-%E2%80%90-Uniform-Resource-Names-for-AI)).
 
 ## Usage
 
@@ -51,8 +63,4 @@ download-model https://civitai.com/api/download/models/46846 /workspace/stable-d
 
 Pull requests and issues on [GitHub](https://github.com/ashleykleynhans/civitai-downloader)
 are welcome. Bug fixes and new features are encouraged.
-
-## Appreciate my work?
-
-<a href="https://www.buymeacoffee.com/ashleyk" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
 
