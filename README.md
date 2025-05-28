@@ -9,7 +9,7 @@ The original project appears to be no longer actively maintained. This version i
 * Uses `requests` instead of `urllib3` for CivitAI API calls
 * Adds support for batch downloading
 * Adds support for using AIR (Artificial Intelligence Resource) in addition to URL
-* **Major Refactor of Core Logic:** For example, `download.py` has been significantly reworked for readability, sanitized filenames, and some QoL improvements like a progress bar.
+* Major Refactor of Core Logic: `download.py` has been significantly reworked for readability, sanitized filenames, and some QoL improvements like a progress bar.
 
 ## Getting Started
 
@@ -33,8 +33,7 @@ pip install .
 
 > [!IMPORTANT]
 > It is important to ensure that you use either the **DOWNLOAD** link
-> and not the link to the model page in CivitAI. You can also
-> use the AIR ([Artificial Intelligence Resource](https://github.com/civitai/civitai/wiki/AIR-%E2%80%90-Uniform-Resource-Names-for-AI)).
+> (not the link to the model page in CivitAI) or the AIR ([Artificial Intelligence Resource](https://github.com/civitai/civitai/wiki/AIR-%E2%80%90-Uniform-Resource-Names-for-AI)). You can find the download link by right-clicking the Download button (or the file you want to download), and hitting Copy Link. 
 
 ## Usage
 
