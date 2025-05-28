@@ -1,2 +1,6 @@
 venv
+.venv
 .idea
+.python-version
+build/
+*.egg-info/
